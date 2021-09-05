@@ -10,16 +10,16 @@ span {
   font-family: 'Roboto', sans-serif;
 }
 span#major1 {
-  font-size: large;
+  font-size: 200%;
 }
 span#major0 {
-  font-size: xxx-large;
+  font-size: 400%;
 }
 span#minor {
-  font-size: small;
+  font-size: 200%;
 }
 span#iso8601 {
-  font-size: small;
+  font-size: 125%;
   color: #333333;
 }
 </style>
@@ -27,7 +27,7 @@ span#iso8601 {
 const update = () => {
   const t = Math.floor(Date.now() / 1000)
   const major = String(Math.floor(t / 1800))
-  const minor = String(t % 1800)
+  const minor = '/' + String(t % 1800)
   const major1 = major.substring(0, major.length - 4)
   const major0 = major.substring(major.length - 4)
   //console.log(`${major1}-${major0}/${minor}`)
@@ -43,6 +43,6 @@ setInterval(update, 1000)
 </head>
 <body>
 </body>
-<span id="major1">00</span><span id="major0">0000</span>/<span id="minor">0000</span><br/>
+<span id="major1">00</span><span id="major0">0000</span><span id="minor">0000</span><br/>
 <span id="iso8601"></span>
 </html>
