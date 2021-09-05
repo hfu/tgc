@@ -18,6 +18,10 @@ span#major0 {
 span#minor {
   font-size: small;
 }
+span#iso8601 {
+  font-size: small;
+  color: #333333;
+}
 </style>
 <script>
 const update = () => {
@@ -30,6 +34,8 @@ const update = () => {
   document.getElementById('major1').textContent = major1
   document.getElementById('major0').textContent = major0
   document.getElementById('minor').textContent = minor
+  document.getElementById('iso8601').textContent = 
+    (new Date()).toISOString()
 }
 
 setInterval(update, 1000)
@@ -37,5 +43,6 @@ setInterval(update, 1000)
 </head>
 <body>
 </body>
-<span id="major1">00</span><span id="major0">0000</span>/<span id="minor">0000</span>
+<span id="major1">00</span><span id="major0">0000</span>/<span id="minor">0000</span><br/>
+<span id="iso8601"></span>
 </html>
