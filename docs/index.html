@@ -1,10 +1,41 @@
 <!doctype html>
 <html>
 <head>
+<style>
+body {
+  background-color: #4d4d4d;
+  color: #f2f2f2;
+}
+span {
+  font-family: 'Roboto', sans-serif;
+}
+span#major1 {
+  font-size: large;
+}
+span#major0 {
+  font-size: xxx-large;
+}
+span#minor {
+  font-size: small;
+}
+</style>
 <script>
+const update = () => {
+  const t = Math.floor(Date.now() / 1000)
+  const major = String(Math.floor(t / 1800))
+  const minor = String(t % 1800)
+  const major1 = major.substring(0, major.length - 4)
+  const major0 = major.substring(major.length - 4)
+  //console.log(`${major1}-${major0}/${minor}`)
+  document.getElementById('major1').textContent = major1
+  document.getElementById('major0').textContent = major0
+  document.getElementById('minor').textContent = minor
+}
+
+setInterval(update, 1000)
 </script>
 </head>
 <body>
 </body>
-<span class="major1">00</span><span class="major0">0000</span>/<span class="minor">0000</span>
+<span id="major1">00</span><span id="major0">0000</span>/<span id="minor">0000</span>
 </html>
